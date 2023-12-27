@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Quiz Test</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<style>
+		/* Add some styles for the quiz */
+		.quiz-question {
+			margin-bottom: 20px;
+		}
+		.quiz-answer {
+			margin-left: 20px;
+		}
+		.quiz-submit {
+			margin-top: 20px;
+		}
+	</style>
+</head>
+<body>
+	<!-- Create the quiz form -->
+	<form id="quiz-form">
+		<div class="quiz-question">
+			<h2>Question 1</h2>
+			<p>What is the capital of France?</p>
+			<div class="quiz-answer">
+				<input type="radio" id="q1a" name="q1" value="a">
+				<label for="q1a">a) Paris</label>
+			</div>
+			<div class="quiz-answer">
+				<input type="radio" id="q1b" name="q1" value="b">
+				<label for="q1b">b) London</label>
+			</div>
+			<div class="quiz-answer">
+				<input type="radio" id="q1c" name="q1" value="c">
+				<label for="q1c">c) New York</label>
+			</div>
+		</div>
+		<div class="quiz-question">
+			<h2>Question 2</h2>
+			<p>What is the capital of Spain?</p>
+			<div class="quiz-answer">
+				<input type="radio" id="q2a" name="q2" value="a">
+				<label for="q2a">a) Madrid</label>
+			</div>
+			<div class="quiz-answer">
+				<input type="radio" id="q2b" name="q2" value="b">
+				<label for="q2b">b) Paris</label>
+			</div>
+			<div class="quiz-answer">
+				<input type="radio" id="q2c" name="q2" value="c">
+				<label for="q2c">c) Berlin</label>
+			</div>
+		</div>
+		<div class="quiz-submit">
+			<input type="button" value="Submit Quiz" onclick="submitQuiz()">
+		</div>
+	</form>
+
+	<!-- Create a placeholder for the quiz score -->
+	<div id="quiz-score"></div>
+
+	<!-- Add the JavaScript code to calculate the quiz score -->
+	<script>
+		function submitQuiz() {
+			// Get the form element
+			var quizForm = document.getElementById("quiz-form");
+
+			// Get the answers
+			var q1Answer = quizForm.q1.value;
+			var q2Answer = quizForm.q2.value;
+
+			// Check the answers and calculate the score
+			var score = 0;
+			if (q1Answer == "a") {
+				score++;
+			}
+			if (q2Answer == "a") {
+				score++;
+			}
+
+			// Display the score
+			var quizScore = document.getElementById("quiz-score");
+			quizScore.innerHTML = "Your score is: " + score + "/2";
+		}
+	</script>
+</body>
+</html>
